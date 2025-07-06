@@ -37,16 +37,16 @@ axios.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-console.log('Application Insights KEY:', import.meta.env.VITE_APPINSIGHTS_CONNECTION_STRING);
-// Crea una instancia de Application Insights
+console.log('Application Insights KEY:', import.meta.env.VITE_APPINSIGHTS_INSTRUMENTATION_KEY);
+
 const appInsights = new ApplicationInsights({
   config: {
-    connectionString: import.meta.env.VITE_APPINSIGHTS_CONNECTION_STRING,
-    enableAutoRouteTracking: true // para SPA
+    instrumentationKey: import.meta.env.VITE_APPINSIGHTS_INSTRUMENTATION_KEY,
+    enableAutoRouteTracking: true
   }
 });
 appInsights.loadAppInsights();
-window.appInsights = appInsights; // Opcional: para usarlo en cualquier parte
+window.appInsights = appInsights;
 
 // Crea la aplicación Vue, usa el router y móntala en el elemento con id 'app'
 createApp(App)
