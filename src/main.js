@@ -37,7 +37,7 @@ axios.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
+console.log('Application Insights KEY:', import.meta.env.VITE_APPINSIGHTS_CONNECTION_STRING);
 // Crea una instancia de Application Insights
 const appInsights = new ApplicationInsights({
   config: {
