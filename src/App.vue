@@ -39,5 +39,5 @@ export default {
       localStorage.setItem('theme', theme);
     },
   },
-};
+}; 
 </script>
