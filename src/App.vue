@@ -9,7 +9,7 @@
 // Importa los estilos globales y de terceros aquí
 import './assets/css/global.css';
 import 'vue-datepicker-next/index.css';
-
+ 
 // Componente principal de la aplicación
 export default {
   name: 'App',
