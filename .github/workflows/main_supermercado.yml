@@ -30,6 +30,9 @@ jobs:
       - name: Build frontend with Vite
         run: npm run build
 
+      - name: Zip dist folder
+        run: zip -r build.zip dist
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -37,9 +40,9 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D7DDBE67A101486E9ACD368F238C8A06 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_D3AF0A7612AC4A1BB5C4B404B9312084 }}
 
-      - name: Deploy dist/ folder to Azure Web App
+      - name: Deploy build.zip to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'supermercado'
           slot-name: 'Production'
-          package: dist
+          package: build.zip
