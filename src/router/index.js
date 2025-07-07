@@ -41,6 +41,11 @@ const routes = [
     path: '/verificar',
     name: 'VerificarCuenta',
     component: () => import('@/views/VerificarCuenta.vue') // ← Asegúrate de tener este archivo
+  },
+  {
+    path: '/verifica-correo',
+    name: 'VerificaCorreo',
+    component: () => import('@/views/VerificaCorreo.vue')
   }
 ];
 
