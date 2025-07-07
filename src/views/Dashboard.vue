@@ -475,19 +475,15 @@ export default {
     async initializeRealTime() {
       try {
         console.log('🚀 Inicializando tiempo real en Dashboard...');
-        
-        // Configurar listeners antes de inicializar
-        realTimeService.addListener('dashboard-sales', this.handleSalesUpdate);
-        realTimeService.addListener('dashboard-activities', this.handleActivitiesUpdate);
-        realTimeService.addListener('dashboard-products', this.handleProductsUpdate);
-        realTimeService.addListener('connection', this.handleConnectionStatus);
-        
+        // Usar subscribe y guardar las funciones de desuscripción
+        this.unsubscribeSales = realTimeService.subscribe('dashboard-sales', this.handleSalesUpdate);
+        this.unsubscribeActivities = realTimeService.subscribe('dashboard-activities', this.handleActivitiesUpdate);
+        this.unsubscribeProducts = realTimeService.subscribe('dashboard-products', this.handleProductsUpdate);
+        this.unsubscribeConnection = realTimeService.subscribe('connection', this.handleConnectionStatus);
         // Inicializar el servicio
         await realTimeService.initialize();
-        
         console.log('✅ Tiempo real inicializado correctamente');
         this.showNotification('Sistema de tiempo real activado', 'success', 'fas fa-broadcast-tower');
-        
       } catch (error) {
         console.warn('⚠️ Error inicializando tiempo real:', error);
         this.showNotification('Tiempo real no disponible, usando modo manual', 'warning', 'fas fa-exclamation-triangle');
@@ -496,11 +492,11 @@ export default {
     
     cleanupRealTime() {
       console.log('🧹 Limpiando conexiones de tiempo real...');
-      realTimeService.removeListener('dashboard-sales', this.handleSalesUpdate);
-      realTimeService.removeListener('dashboard-activities', this.handleActivitiesUpdate);
-      realTimeService.removeListener('dashboard-products', this.handleProductsUpdate);
-      realTimeService.removeListener('connection', this.handleConnectionStatus);
-      realTimeService.disconnect();
+      if (this.unsubscribeSales) this.unsubscribeSales();
+      if (this.unsubscribeActivities) this.unsubscribeActivities();
+      if (this.unsubscribeProducts) this.unsubscribeProducts();
+      if (this.unsubscribeConnection) this.unsubscribeConnection();
+      if (realTimeService.disconnect) realTimeService.disconnect();
     },
     
     handleConnectionStatus(data) {
