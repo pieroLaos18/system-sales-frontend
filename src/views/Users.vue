@@ -160,6 +160,12 @@
             <span class="summary-value">{{ uniqueRoles.length }}</span>
           </div>
         </div>
+        <!--
+        <button class="btn-new-user" @click="openUserModal()">
+          <i class="fas fa-user-plus"></i>
+          <span>Nuevo Usuario</span>
+        </button>
+        -->
       </div>
     </div>
 
@@ -1912,23 +1918,18 @@ export default {
     font-size: 0.75rem;
   }
   
-  .summary-item {
+  .summary-stats {
     flex-direction: column;
-    text-align: center;
-    gap: 0.25rem;
-    padding: 0.5rem 0.75rem;
+    gap: 0.75rem;
   }
   
-  .summary-label {
-    font-size: 0.8rem;
-  }
-  
-  .summary-value {
-    font-size: 1rem;
+  .summary-item {
+    padding: 0.625rem 1rem;
+    width: 100%;
   }
   
   .notification {
-    padding: 0.75rem 0.875rem;
+    padding: 0.875rem 1rem;
     font-size: 0.85rem;
   }
   
