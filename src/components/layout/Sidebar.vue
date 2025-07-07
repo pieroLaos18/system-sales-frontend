@@ -259,6 +259,8 @@ export default {
     left: 0 !important;
     border-radius: 0 !important;
     box-shadow: 2px 0 16px rgba(0, 0, 0, 0.15);
+    background: var(--sidebar-bg, #1e3a8a) !important;
+    /* Fondo sólido, sin transparencia */
     transition: width 0.3s;
   }
   .sidebar.collapsed {
@@ -283,6 +285,16 @@ export default {
   .sidebar-menu a {
     padding: 10px 12px;
     font-size: 0.95rem;
+  }
+  /* Ocultar texto y nombre/rol en modo móvil siempre */
+  .sidebar .sidebar-username,
+  .sidebar .sidebar-role,
+  .sidebar a span {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 }
 </style>
