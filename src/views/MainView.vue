@@ -1,6 +1,12 @@
 <template>
   
   <div class="main-container">
+    <!-- Overlay para móviles -->
+    <div
+      v-if="isSidebarVisible && isSmallScreen"
+      class="sidebar-overlay"
+      @click="toggleSidebar"
+    ></div>
     <!-- Botón flotante para abrir Sidebar en móviles -->
     <button
       v-if="!isSidebarVisible && isSmallScreen"
@@ -447,6 +453,23 @@ export default {
 }
 @media (min-width: 601px) {
   .sidebar-fab {
+    display: none !important;
+  }
+}
+
+/* Overlay oscuro para Sidebar en móviles */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 30, 60, 0.45);
+  z-index: 150;
+  transition: background 0.2s;
+}
+@media (min-width: 601px) {
+  .sidebar-overlay {
     display: none !important;
   }
 }
