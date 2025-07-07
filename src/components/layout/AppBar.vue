@@ -65,7 +65,7 @@ export default {
     // Observar cambios en la imagen del usuario
     fullUserImage: {
       handler(newImage) {
-        console.log('🖼️ Imagen del usuario actualizada en AppBar:', newImage);
+        // Eliminado log informativo de actualización de imagen en AppBar
       },
       immediate: true
     }
@@ -81,7 +81,7 @@ export default {
       }
     },
     handleImageLoad(event) {
-      console.log('✅ Imagen del usuario cargada en AppBar:', event.target.src);
+      // Log eliminado según cambios solicitados
     }
   }
 };
