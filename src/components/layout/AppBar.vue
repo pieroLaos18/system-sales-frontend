@@ -118,6 +118,65 @@ export default {
   }
 }
 
+@media (max-width: 900px) {
+  .app-bar {
+    padding: 0 12px;
+    height: 54px;
+  }
+  .content-wrapper {
+    margin-top: 54px;
+  }
+  .page-title {
+    font-size: 1rem;
+  }
+  .user-image {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-bar {
+    left: 0 !important;
+    width: 100vw !important;
+    padding: 0 6px;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    border-radius: 0 !important;
+  }
+  .content-wrapper {
+    margin-top: 48px;
+  }
+  .left-section {
+    gap: 8px;
+  }
+  .page-title {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+  }
+  .right-section {
+    gap: 8px;
+  }
+  .user-image {
+    width: 26px;
+    height: 26px;
+    border-width: 1px;
+  }
+  .user-name {
+    font-size: 0.85rem;
+    padding: 0 2px;
+  }
+  .icon-btn {
+    font-size: 1rem;
+    padding: 4px;
+  }
+  .logout-btn {
+    font-size: 1rem;
+    padding: 4px;
+  }
+}
+
 .content-wrapper {
   margin-top: 64px;
 }
@@ -229,23 +288,6 @@ export default {
 
 .hamburger-btn {
   display: none;
-}
-
-@media (max-width: 900px) {
-  .app-bar {
-    padding: 0 12px;
-    height: 54px;
-  }
-  .content-wrapper {
-    margin-top: 54px;
-  }
-  .page-title {
-    font-size: 1rem;
-  }
-  .user-image {
-    width: 30px;
-    height: 30px;
-  }
 }
 </style>
 
