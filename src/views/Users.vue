@@ -27,12 +27,14 @@
           </div>
         </div>
         
+        <!--
         <div class="header-actions" v-if="currentUserRole === 'admin'">
           <button class="btn-new-user" @click="openUserModal()">
             <i class="fas fa-user-plus"></i>
             <span>Nuevo Usuario</span>
           </button>
         </div>
+        -->
       </div>
       
       <div class="filters-section">
