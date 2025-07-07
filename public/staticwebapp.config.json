@@ -1,5 +1,22 @@
 {
   "navigationFallback": {
-    "rewrite": "/index.html"
-  }
+    "rewrite": "/index.html",
+    "exclude": [
+      "/assets/*",
+      "/*.css",
+      "/*.js",
+      "/*.png",
+      "/*.jpg",
+      "/*.ico",
+      "/*.woff2",
+      "/*.svg"
+    ]
+  },
+  "routes": [
+    {
+      "route": "/api/*",
+      "allowedRoles": ["anonymous", "authenticated"],
+      "rewrite": "https://system-sales-backend-hafyc4g0hfhbajdm.brazilsouth-01.azurewebsites.net/api/{*path}"
+    }
+  ]
 }
