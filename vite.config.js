@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
  
 export default defineConfig({
-  base: './', // ✅ Importante para Azure
+  base: '/',
   plugins: [vue()],
   resolve: {
     alias: {
