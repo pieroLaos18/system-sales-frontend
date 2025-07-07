@@ -431,11 +431,11 @@ export default {
 /* Botón flotante para abrir Sidebar en móviles */
 .sidebar-fab {
   position: fixed;
-  top: 16px;
-  left: 16px;
+  bottom: 24px;
+  left: 24px;
   z-index: 200;
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: var(--sidebar-bg, #1e3a8a);
   color: #fff;
@@ -444,7 +444,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
 }
@@ -461,8 +461,8 @@ export default {
 .sidebar-overlay {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  left: 80px;
+  width: calc(100vw - 80px);
   height: 100vh;
   background: rgba(20, 30, 60, 0.45);
   z-index: 150;
