@@ -382,7 +382,8 @@ form {
   padding: 1rem 1rem 1rem 3rem;
   border: none !important;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.9);
+  color: #23272f !important;
+  background: rgba(255, 255, 255, 0.97);
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
@@ -420,6 +421,20 @@ form {
 
 .input-container input::placeholder {
   color: var(--text-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  .login-container {
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .input-container input {
+    background: rgba(31, 41, 55, 0.85);
+    color: #fff !important;
+  }
+  .input-container input::placeholder {
+    color: #9ca3af;
+  }
 }
 
 /* Button styles */
@@ -872,12 +887,10 @@ form {
     background: rgba(17, 24, 39, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
-  
   .input-container input {
-    background: rgba(31, 41, 55, 0.8);
-    color: white;
+    background: rgba(31, 41, 55, 0.85);
+    color: #fff !important;
   }
-  
   .input-container input::placeholder {
     color: #9ca3af;
   }
