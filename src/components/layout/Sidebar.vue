@@ -250,4 +250,38 @@ export default {
   pointer-events: none;
   display: none;
 }
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100vw !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.15);
+  }
+  .sidebar.collapsed {
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+  }
+  .sidebar-user {
+    padding: 0.5rem 0;
+  }
+  .user-image {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 6px;
+  }
+  .toggle-btn {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+  }
+  .sidebar-menu a {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+}
 </style>
