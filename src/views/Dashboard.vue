@@ -467,7 +467,6 @@ export default {
     // ======= MÉTODOS DE TIEMPO REAL =======
     async initializeRealTime() {
       try {
-        console.log('🚀 Inicializando tiempo real en Dashboard...');
         // Usar subscribe y guardar las funciones de desuscripción
         this.unsubscribeSales = realTimeService.subscribe('dashboard-sales', this.handleSalesUpdate);
         this.unsubscribeActivities = realTimeService.subscribe('dashboard-activities', this.handleActivitiesUpdate);
@@ -475,7 +474,6 @@ export default {
         this.unsubscribeConnection = realTimeService.subscribe('connection', this.handleConnectionStatus);
         // Inicializar el servicio
         await realTimeService.initialize();
-        console.log('✅ Tiempo real inicializado correctamente');
         this.showNotification('Sistema de tiempo real activado', 'success', 'fas fa-broadcast-tower');
       } catch (error) {
         console.warn('⚠️ Error inicializando tiempo real:', error);
@@ -484,7 +482,6 @@ export default {
     },
     
     cleanupRealTime() {
-      console.log('🧹 Limpiando conexiones de tiempo real...');
       if (this.unsubscribeSales) this.unsubscribeSales();
       if (this.unsubscribeActivities) this.unsubscribeActivities();
       if (this.unsubscribeProducts) this.unsubscribeProducts();
@@ -493,7 +490,6 @@ export default {
     },
     
     handleConnectionStatus(data) {
-      console.log('🔌 Estado de conexión actualizado:', data);
       this.realTimeStatus = data.status;
       this.realTimeType = data.type;
       this.realTimeConnected = data.status === 'connected';
@@ -510,7 +506,6 @@ export default {
     },
     
     handleSalesUpdate(data) {
-      console.log('💰 Actualización de ventas recibida:', data);
       this.lastUpdate = new Date();
       
       // Actualizar datos según el tipo de actualización
