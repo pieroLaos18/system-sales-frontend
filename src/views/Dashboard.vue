@@ -596,27 +596,23 @@ export default {
         // Procesar métodos de pago
         if (metodos.data && Array.isArray(metodos.data)) {
           this.metodosPago = metodos.data;
-          console.log('✅ Métodos de pago cargados:', this.metodosPago.length);
         } else {
-          console.warn('⚠️ Métodos de pago no válidos:', metodos.data);
+          console.error('Métodos de pago no válidos:', metodos.data);
           this.metodosPago = [];
         }
         
         // Intentar cargar ventas por día por separado para manejar errores específicos
         try {
-          console.log('🔍 Cargando ventas por día...');
           const ventasDia = await api.get('/sales/ventas-por-dia');
           this.ventasPorDia = this.processVentasPorDia(ventasDia.data);
           this.ventasPorDiaError = null; // Limpiar error previo
-          console.log('✅ Ventas por día cargadas:', this.ventasPorDia.length);
         } catch (ventasError) {
-          console.warn('⚠️ Error específico en ventas por día:', ventasError);
+          console.error('Error específico en ventas por día:', ventasError);
           this.ventasPorDia = [];
-          
           // Detectar tipo específico de error
           if (ventasError.response?.data?.error?.includes('sql_mode=only_full_group_by')) {
             this.ventasPorDiaError = 'Error de configuración del servidor (SQL)';
-            console.error('🔧 Error de SQL detectado: sql_mode=only_full_group_by');
+            console.error('Error de SQL detectado: sql_mode=only_full_group_by');
           } else if (ventasError.response?.status === 500) {
             this.ventasPorDiaError = 'Error interno del servidor en ventas por día';
           } else {
@@ -839,8 +835,6 @@ export default {
 
     // Método mejorado para procesar ventas por día
     processVentasPorDia(data) {
-      console.log('🔄 Procesando ventas por día:', data);
-      
       if (!data) {
         console.warn('⚠️ No hay datos para procesar');
         return [];
@@ -848,19 +842,16 @@ export default {
       
       // Caso 1: Es directamente un array
       if (Array.isArray(data)) {
-        console.log('✅ Datos son un array directo:', data.length, 'elementos');
         return data;
       }
       
       // Caso 2: Tiene propiedad 'data' que es un array
       if (data.data && Array.isArray(data.data)) {
-        console.log('✅ Datos encontrados en propiedad "data":', data.data.length, 'elementos');
         return data.data;
       }
       
       // Caso 3: Tiene propiedad 'ventas' que es un array
       if (data.ventas && Array.isArray(data.ventas)) {
-        console.log('✅ Datos encontrados en propiedad "ventas":', data.ventas.length, 'elementos');
         return data.ventas;
       }
       
@@ -868,14 +859,12 @@ export default {
       const possibleKeys = ['results', 'items', 'sales', 'dailySales', 'ventasDiarias'];
       for (const key of possibleKeys) {
         if (data[key] && Array.isArray(data[key])) {
-          console.log(`✅ Datos encontrados en propiedad "${key}":`, data[key].length, 'elementos');
           return data[key];
         }
       }
       
       // Caso 5: Es un objeto con datos de un solo día
       if (typeof data === 'object' && data.fecha && data.total !== undefined) {
-        console.log('✅ Datos de un solo día detectados, convirtiendo a array');
         return [data];
       }
       
@@ -886,8 +875,6 @@ export default {
 
     // Método para probar conectividad general del backend
     async testBackendConnectivity() {
-      console.log('🧪 === PROBANDO CONECTIVIDAD DEL BACKEND ===');
-      
       const endpoints = [
         { name: 'Resumen', url: '/sales/resumen' },
         { name: 'Usuarios', url: '/users/stats/activos' },
@@ -895,13 +882,9 @@ export default {
         { name: 'Ventas por día', url: '/sales/ventas-por-dia' },
         { name: 'Top productos', url: '/sales/top-products?limit=5' }
       ];
-      
       for (const endpoint of endpoints) {
         try {
-          console.log(`📡 Probando ${endpoint.name}: ${endpoint.url}`);
           const response = await api.get(endpoint.url);
-          console.log(`✅ ${endpoint.name}: OK (${response.status})`);
-          console.log(`   Data:`, response.data);
         } catch (error) {
           console.error(`❌ ${endpoint.name}: ERROR (${error.response?.status || 'No response'})`);
           console.error(`   Error:`, error.message);
@@ -910,14 +893,11 @@ export default {
           }
         }
       }
-      
       this.showNotification('Prueba de conectividad completada - revisa la consola', 'info');
     },
 
     // Método para verificar configuración del tiempo real
     checkRealTimeConfig() {
-      console.log('🔧 === CONFIGURACIÓN DE TIEMPO REAL ===');
-      
       const config = {
         enabled: import.meta.env.VITE_REALTIME_ENABLED,
         websockets: import.meta.env.VITE_ENABLE_WEBSOCKETS,
@@ -927,11 +907,6 @@ export default {
         wsUrl: import.meta.env.VITE_WS_URL,
         dev: import.meta.env.DEV
       };
-      
-      console.log('📊 Variables de entorno:', config);
-      console.log('🔌 Estado actual del servicio:', realTimeService.getStatus());
-      console.log('📈 Estadísticas de errores:', realTimeService.getErrorStats());
-      
       this.showNotification('Configuración mostrada en consola', 'info');
     },
   }
