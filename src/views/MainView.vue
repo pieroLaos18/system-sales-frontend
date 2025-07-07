@@ -102,12 +102,6 @@ export default {
       const image = this.userImage || localStorage.getItem('userImage');
       const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
       
-      console.log('🔄 Generando fullUserImage:', { 
-        image, 
-        apiUrl, 
-        reactiveUserImage: this.userImage 
-      });
-      
       if (!image || image === 'null' || image === 'undefined' || image === '') {
         return this.defaultImage;
       }
@@ -130,12 +124,6 @@ export default {
     // Cargar datos del usuario de localStorage
     this.userName = localStorage.getItem('userName') || 'Usuario';
     this.userImage = localStorage.getItem('userImage') || this.defaultImage;
-    
-    console.log('👤 Datos del usuario cargados en MainView:', {
-      userName: this.userName,
-      userImage: this.userImage,
-      fullUserImage: this.fullUserImage
-    });
     
     this.checkScreenSize();
     window.addEventListener('resize', this.checkScreenSize);
