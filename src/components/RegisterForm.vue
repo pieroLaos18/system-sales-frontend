@@ -106,9 +106,9 @@ export default {
         this.success = response.data.message;
         this.error = null;
 
-        // Opcional: redirigir tras registro
+        // Redirigir a la nueva vista de "Revisa tu correo electrónico"
         setTimeout(() => {
-          this.$router.push('/verificar');
+          this.$router.push('/verifica-correo');
         }, 2000);
       } catch (error) {
         this.error = error.response?.data?.message || 'Error al registrarse';
