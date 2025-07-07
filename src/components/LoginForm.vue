@@ -383,7 +383,7 @@ form {
   border: none !important;
   border-radius: 12px;
   color: #23272f !important;
-  background: rgba(255, 255, 255, 0.97) !important;
+  background: #fff !important;
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
