@@ -383,7 +383,7 @@ form {
   border: none !important;
   border-radius: 12px;
   color: #23272f !important;
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(255, 255, 255, 0.97) !important;
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
@@ -392,49 +392,8 @@ form {
   outline: none !important;
 }
 
-/* Remove any possible browser defaults */
-.input-container input::-webkit-inner-spin-button,
-.input-container input::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.input-container input[type="email"],
-.input-container input[type="password"] {
-  border: none !important;
-  outline: none !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.input-container input:focus {
-  outline: none !important;
-  border: none !important;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
-}
-
-.input-container input:focus + i,
-.input-container:focus-within i {
-  color: var(--primary-color);
-}
-
 .input-container input::placeholder {
-  color: var(--text-light);
-}
-
-@media (prefers-color-scheme: dark) {
-  .login-container {
-    background: rgba(17, 24, 39, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .input-container input {
-    background: rgba(31, 41, 55, 0.85);
-    color: #fff !important;
-  }
-  .input-container input::placeholder {
-    color: #9ca3af;
-  }
+  color: #9ca3af !important;
 }
 
 /* Button styles */
