@@ -389,4 +389,28 @@ export default {
   box-shadow: none;
   padding: 0;
 }
+
+@media (max-width: 600px) {
+  .main-container {
+    flex-direction: column;
+    min-height: 100dvh;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  .content-wrapper {
+    margin-left: 0 !important;
+    min-width: 100vw;
+    width: 100vw;
+    padding: 0;
+  }
+  .content-wrapper.collapsed {
+    margin-left: 0 !important;
+  }
+  .main-content {
+    padding: 8px 2px 8px 2px;
+  }
+  .dashboard-inner {
+    padding: 0;
+  }
+}
 </style>
