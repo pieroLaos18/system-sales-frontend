@@ -89,7 +89,7 @@ export default {
     // Observar cambios en la imagen del usuario
     userImage: {
       handler(newImage) {
-        console.log('🖼️ Imagen del usuario actualizada en Sidebar:', newImage);
+        // Eliminado log informativo de actualización de imagen en Sidebar
       },
       immediate: true
     }
@@ -115,7 +115,7 @@ export default {
       }
     },
     handleImageLoad(event) {
-      console.log('✅ Imagen del usuario cargada en Sidebar:', event.target.src);
+      // Eliminado log informativo de carga de imagen
     }
   }
 };
