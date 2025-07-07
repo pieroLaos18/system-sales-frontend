@@ -1,7 +1,15 @@
 <template>
   
   <div class="main-container">
-    
+    <!-- Botón flotante para abrir Sidebar en móviles -->
+    <button
+      v-if="!isSidebarVisible && isSmallScreen"
+      class="sidebar-fab"
+      @click="toggleSidebar"
+      aria-label="Abrir menú"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
     <!-- Sidebar -->
     <Sidebar :visible="isSidebarVisible" :isSmallScreen="isSmallScreen" :role="currentUserRole" :userName="userName" :userImage="fullUserImage" @toggle="toggleSidebar" />
     <!-- Contenedor de contenido principal -->
@@ -411,6 +419,35 @@ export default {
   }
   .dashboard-inner {
     padding: 0;
+  }
+}
+
+/* Botón flotante para abrir Sidebar en móviles */
+.sidebar-fab {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sidebar-bg, #1e3a8a);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.sidebar-fab:active {
+  background: var(--primary-dark, #2563eb);
+}
+@media (min-width: 601px) {
+  .sidebar-fab {
+    display: none !important;
   }
 }
 </style>
