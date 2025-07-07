@@ -406,10 +406,7 @@ export default {
       };
     },
     chartDataVentasPorDia() {
-      console.log('🎨 Generando gráfico de barras con datos:', this.ventasPorDia);
-      
       if (!this.ventasPorDia || !Array.isArray(this.ventasPorDia) || this.ventasPorDia.length === 0) {
-        console.warn('⚠️ No hay datos para el gráfico de barras');
         return {
           labels: [],
           datasets: [{
@@ -432,10 +429,6 @@ export default {
         const total = Number(v.total) || 0;
         return total;
       });
-      
-      console.log('� Datos del gráfico - Labels:', labels);
-      console.log('📊 Datos del gráfico - Valores:', data);
-      console.log('📊 Muestra de datos originales:', this.ventasPorDia.slice(0, 2));
       
       return {
         labels: labels,
@@ -579,7 +572,6 @@ export default {
         ]);
         this.showNotification('Dashboard actualizado correctamente', 'success');
       } catch (error) {
-        console.error('Error cargando datos del dashboard:', error);
         this.showNotification('Error al cargar datos del dashboard', 'error', 'fas fa-exclamation-triangle');
       } finally {
         this.loading = false;
