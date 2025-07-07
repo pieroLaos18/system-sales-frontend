@@ -1639,6 +1639,157 @@ export default {
   }
 }
 
+@media (max-width: 600px) {
+  .dashboard-page {
+    padding: 0.5rem 0.5rem 2.5rem 0.5rem !important;
+    min-height: 100dvh;
+    max-height: 100dvh;
+  }
+  .dashboard-header {
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+  .header-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .header-left {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .header-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+  }
+  .header-icon i {
+    font-size: 1.1rem;
+  }
+  .header-text h1 {
+    font-size: 1.2rem;
+  }
+  .header-subtitle {
+    font-size: 0.85rem;
+  }
+  .header-stats {
+    gap: 0.5rem;
+  }
+  .stat-item {
+    min-width: 60px;
+  }
+  .stat-number {
+    font-size: 1.1rem;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+  }
+  .header-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .real-time-indicator {
+    min-width: auto;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  .btn-refresh {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+  .dashboard-content {
+    gap: 1rem;
+  }
+  .charts-section,
+  .top-products-section,
+  .recent-activities-section {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .chart-card {
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+  .chart-header h3 {
+    font-size: 1rem;
+  }
+  .chart-wrapper {
+    height: 180px;
+    min-height: 120px;
+    max-height: 220px;
+  }
+  .top-products-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .product-rank-card {
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+  .product-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+  }
+  .product-name {
+    font-size: 0.95rem;
+  }
+  .product-category {
+    font-size: 0.8rem;
+  }
+  .stat-label, .stat-value {
+    font-size: 0.8rem;
+  }
+  .activities-list {
+    gap: 0.5rem;
+  }
+  .activity-item {
+    padding: 0.5rem;
+    border-radius: 8px;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .activity-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  .activity-description {
+    font-size: 0.95rem;
+  }
+  .activity-meta {
+    font-size: 0.75rem;
+    gap: 0.25rem;
+  }
+  .activity-type {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+  }
+  .no-data-msg {
+    padding: 1.5rem 0.5rem;
+    font-size: 0.95rem;
+  }
+  .no-data-msg i {
+    font-size: 2rem;
+  }
+  .loader {
+    height: 100px;
+  }
+  .loader::after {
+    width: 24px;
+    height: 24px;
+    border-width: 3px;
+  }
+}
+
 /* Media queries para responsividad del scroll */
 @media (min-width: 1024px) {
   .dashboard-page {
