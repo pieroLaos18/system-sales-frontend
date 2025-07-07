@@ -253,12 +253,13 @@ export default {
 
 @media (max-width: 600px) {
   .sidebar {
-    width: 100vw !important;
+    width: 80px !important;
     min-width: 0 !important;
-    max-width: 100vw !important;
+    max-width: 80px !important;
     left: 0 !important;
     border-radius: 0 !important;
     box-shadow: 2px 0 16px rgba(0, 0, 0, 0.15);
+    transition: width 0.3s;
   }
   .sidebar.collapsed {
     width: 0 !important;
