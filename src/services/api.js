@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // Crea una instancia de Axios con la configuración base
 const api = axios.create({
-  baseURL: '/api', // URL base para todas las peticiones
+  baseURL: `${import.meta.env.VITE_API_URL.replace(/\/$/, '')}/api`, // Usa la variable de entorno y asegura que no haya doble slash
   headers: {
     'Content-Type': 'application/json',
   },
